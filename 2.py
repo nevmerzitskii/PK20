@@ -41,13 +41,11 @@ ball_rect = ball_image.get_rect(topleft=(0, 0))
 
 
 def abc(x,y):
-    global ball_rect
-    ball_rect = ball_rect.move(speed)
     if ball_rect.left < 0 or ball_rect.right > W:
         speed[0] = -x
     elif ball_rect.top < 0 or ball_rect.bottom > H:
         speed[1] = -y
-    return ball_rect.moves(speed)
+    return ball_rect.move(speed)
 
 
 while True:
@@ -80,7 +78,7 @@ while True:
 
     ball_rect = abc(speed[0], speed[1])
 
-    screen.blit(ball_image, ball_rect)  
+    screen.blit(ball_image, ball_rect)
     screen.blit(font.render(str(n), 1, RED), (10, 10))
-    screen.blit(font.render(str(n), 1, RED), (W - 30, 10)) 
+    screen.blit(font.render(str(n), 1, RED), (W - 30, 10))
     pygame.display.update()
